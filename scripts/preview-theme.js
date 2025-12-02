@@ -305,7 +305,7 @@ const getWebAimLink = (color1, color2) => {
  * @returns {string} GRS theme url.
  */
 const getGRSLink = (colors) => {
-  const url = `https://github-readme-stats.vercel.app/api?username=anuraghazra`;
+  const url = `https://github-readme-stats-howard-wu-20.vercel.app/api?username=howard20181`;
   const colorString = Object.keys(colors)
     .map((colorKey) => `${colorKey}=${colors[colorKey]}`)
     .join("&");
@@ -521,8 +521,7 @@ export const run = async () => {
       if (invalidColors) {
         themeValid[theme] = false;
         previewBody += `
-          \r### ${
-            themeName.charAt(0).toUpperCase() + themeName.slice(1)
+          \r### ${themeName.charAt(0).toUpperCase() + themeName.slice(1)
           } theme preview
           
           \r${warnings.map((warning) => `- :warning: ${warning}.\n`).join("")}
@@ -567,14 +566,12 @@ export const run = async () => {
       // Create theme preview body.
       debug("Theme preview body: Create theme preview body...");
       previewBody += `
-        \r### ${
-          themeName.charAt(0).toUpperCase() + themeName.slice(1)
+        \r### ${themeName.charAt(0).toUpperCase() + themeName.slice(1)
         } theme preview
         
         \r${warnings.map((warning) => `- :warning: ${warning}.\n`).join("")}
 
-        \ntitle_color: <code>#${titleColor}</code> | icon_color: <code>#${iconColor}</code> | text_color: <code>#${textColor}</code> | bg_color: <code>#${bgColor}</code>${
-          borderColor ? ` | border_color: <code>#${borderColor}</code>` : ""
+        \ntitle_color: <code>#${titleColor}</code> | icon_color: <code>#${iconColor}</code> | text_color: <code>#${textColor}</code> | bg_color: <code>#${bgColor}</code>${borderColor ? ` | border_color: <code>#${borderColor}</code>` : ""
         }
 
         \r[Preview Link](${url})
@@ -586,10 +583,9 @@ export const run = async () => {
     // Create comment body.
     debug("Create comment body...");
     commentBody += `
-      \r${
-        Object.values(themeValid).every((value) => value)
-          ? THEME_PR_SUCCESS_TEXT
-          : THEME_PR_FAIL_TEXT
+      \r${Object.values(themeValid).every((value) => value)
+        ? THEME_PR_SUCCESS_TEXT
+        : THEME_PR_FAIL_TEXT
       }
       \r## Test results
       \r${Object.entries(themeValid)
@@ -598,10 +594,9 @@ export const run = async () => {
         )
         .join("\r")}
 
-      \r${
-        Object.values(themeValid).every((value) => value)
-          ? "**Result:** :heavy_check_mark: All themes are valid."
-          : "**Result:** :x: Some themes are invalid.\n\n" + FAIL_TEXT
+      \r${Object.values(themeValid).every((value) => value)
+        ? "**Result:** :heavy_check_mark: All themes are valid."
+        : "**Result:** :x: Some themes are invalid.\n\n" + FAIL_TEXT
       }
       
       \r## Details
@@ -668,8 +663,8 @@ export const run = async () => {
         REPO,
         "REQUEST_CHANGES",
         "**Something went wrong in the theme preview action:** `" +
-          error.message +
-          "`",
+        error.message +
+        "`",
       );
       await addRemoveLabel(
         OCTOKIT,
